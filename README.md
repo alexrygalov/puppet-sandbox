@@ -27,7 +27,7 @@ Requirements
 
 To use Puppet Sandbox, you must have the following items installed and working:
 
-* [VirtualBox](https://www.virtualbox.org/)
+* [Parallels Desktop](https://www.parallels.com/products/desktop/)
 * [Vagrant 1.1+](http://vagrantup.com/)
 
 Puppet Sandbox has been designed for and tested with Vagrant base boxes running:
@@ -36,6 +36,7 @@ Puppet Sandbox has been designed for and tested with Vagrant base boxes running:
 * CentOS 5.8
 * Ubuntu 12.04 - Precise Pangolin
 * Ubuntu 10.04 - Lucid Lynx
+* Ubuntu 14.04 - Lucid Trusty Tahr
 
 ...although it may work just fine with other distributions/versions.
 
