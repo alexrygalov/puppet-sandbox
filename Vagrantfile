@@ -6,7 +6,7 @@ domain = 'example.com'
 puppet_nodes = [
   {:hostname => 'puppet',  :ip => '10.37.132.100', :box => 'parallels/ubuntu-14.04', :fwdhost => 8140, :fwdguest => 8140, :ram => 512},
   {:hostname => 'client1', :ip => '10.37.132.101', :box => 'parallels/ubuntu-14.04'},
-  {:hostname => 'client2', :ip => '10.37.132.102', :box => 'parallels/ubuntu-14.04'},
+  #{:hostname => 'client2', :ip => '10.37.132.102', :box => 'parallels/ubuntu-14.04'},
 ]
 
 Vagrant.configure("2") do |config|
@@ -25,6 +25,11 @@ Vagrant.configure("2") do |config|
        v.update_guest_tools = true
        v.memory = 512
        v.cpus = 2
+       end
+
+      config.vm.provision "fix-no-tty", type: "shell" do |s|
+      s.privileged = false
+      s.inline = "sudo sed -i '/tty/!s/mesg n/tty -s \\&\\& mesg n/' /root/.profile"
        end
 
        node_config.vm.provision :puppet do |puppet|
